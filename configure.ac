@@ -115,7 +115,7 @@ elif test "$with_cuba" = "no"; then
 elif test "$with_cuba" = "download"; then
   use_cuba=yes
 
-  cuba_version_default=4.2
+  cuba_version_default=4.2.2
   local_cuba_dir="`pwd`/external/cuba-${cuba_version_default}"
   cuba_url="http://www.feynarts.de/cuba/Cuba-${cuba_version_default}.tar.gz"
 
@@ -213,7 +213,7 @@ if test "x$use_cuba" != xno; then
     const char * statefile = "";
     void * userdata;
     Suave(ndim, ncomp, &integrand, userdata, nvec,
-        epsrel, ebsabs, flags, seed, mineval, maxeval,
+        epsrel, epsabs, flags, seed, mineval, maxeval,
         nnew, flatness, statefile,
         nregions, neval, fail, integral, error, prob);
 
@@ -234,14 +234,14 @@ if test "x$use_cuba" != xno; then
 
   int main()
   {
-    int ndim, ncomp, nvec, flags, seed, mineval, maxeval, nnew, spin;
+    int ndim, ncomp, nvec, flags, seed, mineval, maxeval, nnew;
     double epsrel, epsabs, flatness;
-    int * nregions, *fail, *neval;
-    double * integral, *error, *prob;
-    const char * statefile = "";
-    void * userdata;
+    int *nregions, *fail, *neval;
+    double *integral, *error, *prob;
+    const char *statefile = "";
+    void *userdata, *spin;
     Suave(ndim, ncomp, &integrand, userdata, nvec,
-        epsrel, ebsabs, flags, seed, mineval, maxeval,
+        epsrel, epsabs, flags, seed, mineval, maxeval,
         nnew, flatness, statefile,
         spin, /*spin was added in 4.0 */
         nregions, neval, fail, integral, error, prob);
@@ -264,12 +264,12 @@ if test "x$use_cuba" != xno; then
 
   int main()
   {
-    int ndim, ncomp, nvec, flags, seed, mineval, maxeval, nnew, nmin, spin;
+    int ndim, ncomp, nvec, flags, seed, mineval, maxeval, nnew, nmin;
     double epsrel, epsabs, flatness;
-    int * nregions, *fail, *neval;
-    double * integral, *error, *prob;
-    const char * statefile = "";
-    void * userdata;
+    int *nregions, *fail, *neval;
+    double *integral, *error, *prob;
+    const char *statefile = "";
+    void *userdata, *spin;
     Suave(ndim, ncomp, &integrand, userdata, nvec,
         epsrel, epsabs, flags, seed, mineval, maxeval, nnew,
         nmin, /* nmin added in 4.1 */
